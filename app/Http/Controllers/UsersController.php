@@ -51,6 +51,8 @@ class UsersController extends Controller
     public function show($id)
     {
         //
+        $user = User::find($id);
+        return view('users.show',compact('user'));
         
     }
 
@@ -63,8 +65,7 @@ class UsersController extends Controller
     public function edit($id)
     {
         //        
-        $user = User::find($id);
-        // $user = User::where('id', $id)->get();        
+        $user = User::find($id);        
         return view('users.edit', compact('user'));
     }
 
