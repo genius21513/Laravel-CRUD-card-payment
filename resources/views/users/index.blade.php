@@ -3,11 +3,11 @@
 @section('main')
 
     <div class="row">
-        <div class="col-lg-3">
+        <div class="col-lg-10">
             <h2 class="text-left">Users</h2>
         </div>
-        <div class="col-lg-9 text-right" style="margin-top:10px;margin-bottom: 10px;">
-            <a class="btn btn-success " href="{{ route('users.create') }}"> Add User</a>
+        <div class="col-lg-2" style="margin-bottom: 10px;">
+            <a class="btn btn-success" href="{{ route('users.create') }}"> Add User</a>
         </div>
     </div>
 
@@ -21,13 +21,15 @@
         <table class="table table-bordered">
             <tr>
                 <th>No</th>
-                <th>Email</th>                
+                <th>Name</th>
+                <th>Email</th>
                 <th width="280px">More</th>
             </tr>
             @foreach ($users as $user)
                 <tr>
                     <td>{{ ++$i }}</td>
-                    <td>{{ $user->email }}</td>                    
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->email }}</td>
                     <td>
                         <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                             <a class="btn btn-info" href="{{ route('users.show',$user->id) }}">Show</a>
