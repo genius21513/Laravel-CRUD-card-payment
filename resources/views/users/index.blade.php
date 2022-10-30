@@ -20,10 +20,10 @@
     @if(sizeof($users) > 0)
         <table class="table table-bordered">
             <tr>
-                <th width="5%">No</th>
-                <th width="10%">Name</th>
+                <th width="10%">No</th>
+                <th width="20%">Name</th>
                 <th width="20%">Email</th>
-                <th width="10%">Role</th>
+                <th width="20%">Role</th>
                 <th width="%">More</th>
             </tr>
             @foreach ($users as $user)
