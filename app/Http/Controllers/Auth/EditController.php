@@ -20,16 +20,16 @@ class EditController extends Controller
         // dd($request);
         $request->validate([
             'o_password' => 'required|string|min:8',
-            // 'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
         
         $user = Auth::user();
 
         if (! Hash::check($request->o_password, $user->password)) {
-            return back()->with('message', 'Old Password incorrect.');
+            return back()->with('message', 'Nieprawidłowe stare hasło.');
         }
 
-        // $user->password = Hash::make($request['password']);
+        $user->password = Hash::make($request['password']);
         $user->save();
         // return redirect(route('account.home'))->with('message', 'Profil zaktualizowany');
         return back()->with('message','Profil zaktualizowany.');
