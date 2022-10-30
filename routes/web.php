@@ -32,6 +32,7 @@ Route::get('/',[AccountController::class, 'index'])->name('dashboard')->middlewa
 
 Route::prefix('user')->middleware('auth')->group(function(){
     Route::get('/me',[EditController::class, 'index'])->name('edit.user');
+    Route::post('/me',[EditController::class, 'store'])->name('edit.user.store');
 });
 
 Route::resource('users', UsersController::class)->middleware('auth');

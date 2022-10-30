@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class EditController extends Controller
 {
@@ -12,16 +15,16 @@ class EditController extends Controller
         return view('auth.edit');
     }
 
-    public function update()
+    public function store(Request $request)
     {
-        // $request->validate([
-        //     'name' =>'required|min:4|string|max:255',
-        //     'email'=>'required|email|string|max:255'
-        // ]);
-        // $user =Auth::user();
-        // $user->name = $request['name'];
-        // $user->email = $request['email'];
-        // $user->save();
-        // return back()->with('message','Profile Updated');
+        $request->validate([
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+        
+        $user = Auth::user();                
+        $user->password = Hash::make($request['password']);        
+        $user->save();
+        // return redirect(route('account.home'))->with('message', 'Profil zaktualizowany');
+        return back()->with('message','Profil zaktualizowany.');
     }
 }
