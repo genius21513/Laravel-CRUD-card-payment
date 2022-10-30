@@ -30,10 +30,50 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Email:</strong>
-                    <input type="text" name="product_name" value="{{ $user->email }}" class="form-control" placeholder="Product Name">
+                    <strong>Name:</strong>
+                    {{ $user->name }}
                 </div>
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Email:</strong>
+                    {{ $user->email }}
+                </div>
+            </div>
+            <hr class="mt-1" />
+            <div class="form-group">
+                <strong>Role: </strong>
+
+                @php
+                    $isUser = true;
+                    if ($user->role !== 'user') $isUser = false;
+                @endphp
+
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        {{ $user->role }}
+                        <input type="radio" class="form-check-input" name="role" value="user" @if($isUser) checked @endif /> User
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="role" value="admin" @if(!$isUser) checked @endif> Admin
+                    </label>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Password:</strong>
+                    <input type="password" name="password" value="" class="form-control" placeholder="Password">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Confirm Password:</strong>
+                    <input type="password" name="password_confirmation" value="" class="form-control" placeholder="Confirm Password">
+                </div>
+            </div>
+            
             <div class="col-xs-12 col-sm-12 col-md-12 text-center mt-3">
                 <button type="submit" class="btn btn-primary">Save</button>
             </div>

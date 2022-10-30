@@ -23,6 +23,7 @@
                 <th>No</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Role</th>
                 <th width="280px">More</th>
             </tr>
             @foreach ($users as $user)
@@ -30,6 +31,7 @@
                     <td>{{ ++$i }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
+                    <td>{{ $user->role }}</td>
                     <td>
                         <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                             <a class="btn btn-info" href="{{ route('users.show',$user->id) }}">Show</a>

@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+
 
 class UsersController extends Controller
 {
@@ -43,10 +44,14 @@ class UsersController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            // 'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
-        User::create($request->all());
+        $input = $request->all();
+        $input['password'] = Hash::make('P@ssword'); 
+
+        User::create($input);
+
         return redirect()->route('users.index')->with('success','Utworzono pomyślnie.');
     }
 
@@ -87,13 +92,19 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
         $request->validate([
-            'email' => 'required'
+            // 'name' => ['required', 'string', 'max:255'],
+            // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['nullable', 'string', 'min:8', 'confirmed'],
         ]);
-
+        
         $user = User::find($id);
-        $user->update($request->all());
+        $input = $request->all();
+        if ($input['password'])
+            $user->password = Hash::make($request->password);
+        if ($input['role'])
+            $user->role = $input['role'];
+        $user->save();
         return redirect()->route('users.index')->with('success','Aktualizacja zakończona sukcesem.');
     }
 
@@ -107,7 +118,7 @@ class UsersController extends Controller
     {
         //
         $user = User::find($id);
-        // $user->delete();
+        $user->delete();
         return redirect()->route('users.index')->with('success','Użytkownik został pomyślnie usunięty.');
     }
 }

@@ -36,7 +36,7 @@
                 <input type="text" name="email" class="form-control" placeholder="User Email">
             </div>
             <div class="form-group">
-                <strong>Role:</strong>          
+                <strong>Role:</strong>
                 <div class="form-check-inline">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="role" checked value="user"> User
@@ -50,12 +50,16 @@
             </div>
             <div class="form-group">
                 <strong>Password:</strong>
+                <label class="form-control"> Default Password: P@ssword</label>
+            </div>
+            <!-- <div class="form-group">
+                <strong>Password:</strong>
                 <input type="password" name="password" class="form-control" placeholder="User Password">
             </div>
             <div class="form-group">
                 <strong>Confirm Password:</strong>
                 <input type="password" name="password_confirmation" class="form-control" placeholder="User Password Confirmation">
-            </div>
+            </div> -->
         </div>        
         <div class="col-xs-12 col-sm-12 col-md-12 text-center mt-3">
             <button type="submit" class="btn btn-primary">Save</button>
