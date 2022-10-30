@@ -34,11 +34,11 @@
                         @auth
                         @if (Auth::user()->role === 'admin')
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('users.index') }}">{{ __('Users') }}</a>
+                                <a class="nav-link" href="{{ route('users.index') }}">{{ __('Użytkownicy') }}</a>
                             </li>
                         @endif
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('dashboard') }}">{{ __('Accounts') }}</a>
+                            <a class="nav-link" href="{{ route('dashboard') }}">{{ __('Konta') }}</a>
                         </li>    
                         @endauth
                     </ul>

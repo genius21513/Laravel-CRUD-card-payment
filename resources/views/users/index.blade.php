@@ -4,10 +4,10 @@
 
     <div class="row">
         <div class="col-lg-10">
-            <h2 class="text-left">Users</h2>
+            <h2 class="text-left">Użytkownicy</h2>
         </div>
         <div class="col-lg-2" style="margin-bottom: 10px;">
-            <a class="btn btn-success" href="{{ route('users.create') }}"> Add User</a>
+            <a class="btn btn-success" href="{{ route('users.create') }}"> Dodaj użytkownika</a>
         </div>
     </div>
 
