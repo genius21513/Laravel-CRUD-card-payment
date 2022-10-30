@@ -141,6 +141,9 @@ return [
     'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',
+        ],        
+        'o_password' => [
+            'min' => 'The password must be at least :min characters.',
         ],
     ],
 

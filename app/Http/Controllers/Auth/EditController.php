@@ -17,12 +17,19 @@ class EditController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request);
         $request->validate([
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'o_password' => 'required|string|min:8',
+            // 'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
         
-        $user = Auth::user();                
-        $user->password = Hash::make($request['password']);        
+        $user = Auth::user();
+
+        if (! Hash::check($request->o_password, $user->password)) {
+            return back()->with('message', 'Old Password incorrect.');
+        }
+
+        // $user->password = Hash::make($request['password']);
         $user->save();
         // return redirect(route('account.home'))->with('message', 'Profil zaktualizowany');
         return back()->with('message','Profil zaktualizowany.');
