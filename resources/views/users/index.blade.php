@@ -21,10 +21,10 @@
         <table class="table table-bordered">
             <tr>
                 <th width="10%">No</th>
-                <th width="20%">Name</th>
-                <th width="20%">Email</th>
-                <th width="20%">Role</th>
-                <th width="%">More</th>
+                <th width="20%">Nazwa</th>
+                <th width="20%">E-mail</th>
+                <th width="20%">Rola</th>
+                <th width="%">Więcej</th>
             </tr>
             @foreach ($users as $user)
                 <tr>
@@ -34,11 +34,11 @@
                     <td>{{ $user->role }}</td>
                     <td>
                         <form action="{{ route('users.destroy', $user->id) }}" method="POST">
-                            <a class="btn btn-info" href="{{ route('users.show',$user->id) }}">Show</a>
-                            <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
+                            <a class="btn btn-info" href="{{ route('users.show',$user->id) }}">Pokazać</a>
+                            <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edytować</a>
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger">Usuwać</button>
                         </form>
                     </td>
                 </tr>
