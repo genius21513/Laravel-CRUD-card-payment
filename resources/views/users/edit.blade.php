@@ -3,10 +3,10 @@
 @section('main')
 
     <div class="row">
-        <div class="col-lg-12">
-            <h2 class="text-center">Edit User</h2>
+        <div class="col-lg-10">
+            <h2 class="text-left">Edit User</h2>
         </div>
-        <div class="col-lg-12 text-center" style="margin-top:10px;margin-bottom: 10px;">
+        <div class="col-lg-2 text-center" style="margin-bottom: 10px;">
             <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
         </div>
     </div>
@@ -33,7 +33,7 @@
                     <strong>Email:</strong>
                     <input type="text" name="product_name" value="{{ $user->email }}" class="form-control" placeholder="Product Name">
                 </div>
-            </div>            
+            </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center mt-3">
                 <button type="submit" class="btn btn-primary">Save</button>
             </div>

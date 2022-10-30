@@ -40,6 +40,14 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        User::create($request->all());
+        return redirect()->route('users.index')->with('success','Utworzono pomyślnie.');
     }
 
     /**
@@ -81,12 +89,12 @@ class UsersController extends Controller
     {
         //
         $request->validate([
-            'email' => 'required'            
+            'email' => 'required'
         ]);
 
         $user = User::find($id);
         $user->update($request->all());
-        return redirect()->route('users.index')->with('success','Updated Successfully.');
+        return redirect()->route('users.index')->with('success','Aktualizacja zakończona sukcesem.');
     }
 
     /**
@@ -100,6 +108,6 @@ class UsersController extends Controller
         //
         $user = User::find($id);
         // $user->delete();
-        return redirect()->route('users.index')->with('success','User deleted successfully.');
+        return redirect()->route('users.index')->with('success','Użytkownik został pomyślnie usunięty.');
     }
 }
