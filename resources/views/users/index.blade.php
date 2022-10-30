@@ -44,6 +44,8 @@
         <div class="alert alert-alert">Empty Data</div>
     @endif
 
-    {!! $users->links() !!}
+    <div>    
+        {!! $users->links('pagination::bootstrap-4') !!}
+    </div>
 
 @endsection
