@@ -3,10 +3,10 @@
 @section('main')
 
     <div class="row">
-        <div class="col-lg-12">
-            <h2 class="text-center">Users</h2>
+        <div class="col-lg-3">
+            <h2 class="text-left">Users</h2>
         </div>
-        <div class="col-lg-12 text-center" style="margin-top:10px;margin-bottom: 10px;">
+        <div class="col-lg-9 text-right" style="margin-top:10px;margin-bottom: 10px;">
             <a class="btn btn-success " href="{{ route('users.create') }}"> Add User</a>
         </div>
     </div>
