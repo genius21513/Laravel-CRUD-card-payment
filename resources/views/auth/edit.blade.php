@@ -36,6 +36,14 @@
                             </div>
                         </div>
 
+                        <div class="row mb-3">
+                            <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
+
+                            <div class="col-md-6">
+                                <label class="form-control">{{ Auth::user()->role }}</label>                                
+                            </div>
+                        </div>
+
                         <hr />
                         <div class="row mb-3">
                             <label for="o-password" class="col-md-4 col-form-label text-md-right">{{ __('Old Password') }}</label>
