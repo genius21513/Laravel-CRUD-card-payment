@@ -1,0 +1,21 @@
+.adding-card-radio{
+
+    input[type="radio"]{
+        visibility: hidden;
+        height: 0;
+        width: 0;
+      }
+    label {
+        text-align: center;
+        cursor: pointer;
+        background-color: #929292;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 3px;
+      }
+
+    input[type="radio"]:checked + label{
+        background-color: #198754;
+    }
+
+}

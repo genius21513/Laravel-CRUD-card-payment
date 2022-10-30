@@ -1,0 +1,23 @@
+.account{
+    button{
+        height: 83px;
+    }
+}
+.account-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.history-body{
+    max-height: 588px;
+    overflow-y: scroll;
+}
+.carousel-item{
+    height:250px
+}
+.slides-counter{
+    display: none;
+}
+.action-btn{
+    margin:6px
+}
